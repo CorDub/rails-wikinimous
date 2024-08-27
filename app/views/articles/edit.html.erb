@@ -1,0 +1,17 @@
+<div class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between">
+  <h1>Wikinimous</h1>
+  <%= link_to "New Article", :new_article, class: "btn btn-primary" %>
+</div>
+<h1>Edit article</h1>
+<div class="container">
+<%= form_with model: @article do |a|%>
+  <%= a.label :title, class: "form-label" %>
+  <%= a.text_field :title, placeholder: :title, class: "form-control" %>
+  <%= a.label :content, class: "form-label" %>
+  <%= a.text_field :content, content: :content, class: "form-control" %>
+  <%= a.submit "Update Article", class: "btn btn-primary"%>
+<% end %>
+<%= link_to "Show", article_path(@article.id) %>
+<p> | </p>
+<%= link_to "Back", articles_path %>
+</div>
